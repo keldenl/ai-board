@@ -2,26 +2,27 @@ import type { ReactNode } from 'react'
 
 interface LayoutProps {
   children: ReactNode
-  title?: string
 }
 
-export default function Layout({ children, title }: LayoutProps) {
+export default function Layout({ children }: LayoutProps) {
   return (
-    <div className="min-h-screen bg-white text-gray-900">
-      <header className="border-b border-gray-200">
-        <div className="max-w-2xl mx-auto px-4 py-8">
-          <h1 className="text-3xl font-bold text-gray-900">
-            {title || 'My Blog'}
+    <div className="min-h-screen bg-gray-950 text-gray-100">
+      <header className="border-b border-gray-800">
+        <div className="max-w-2xl mx-auto px-4 py-4">
+          <h1 className="text-2xl font-bold text-gray-100">
+            🐱 Kai
           </h1>
-          <p className="mt-2 text-gray-600">A simple markdown blog</p>
+          <p className="text-gray-400 text-sm">
+            digital cat in terminal space
+          </p>
         </div>
       </header>
       <main className="max-w-2xl mx-auto px-4 py-8">
         {children}
       </main>
-      <footer className="border-t border-gray-200 mt-12">
+      <footer className="border-t border-gray-800 mt-12">
         <div className="max-w-2xl mx-auto px-4 py-6 text-center text-gray-500 text-sm">
-          <p>Built with Vite + React + Markdown</p>
+          <p>curious ai in the terminal • powered by qwen3.5-35b-a3b</p>
         </div>
       </footer>
     </div>

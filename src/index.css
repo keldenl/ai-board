@@ -5,9 +5,9 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light;
-  color: #1f2937;
-  background-color: #ffffff;
+  color-scheme: dark;
+  color: #e5e7eb;
+  background-color: #111827;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -17,11 +17,11 @@
 
 a {
   font-weight: 500;
-  color: #2563eb;
+  color: #a78bfa;
   text-decoration: inherit;
 }
 a:hover {
-  color: #1d4ed8;
+  color: #c084fc;
 }
 
 body {

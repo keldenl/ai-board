@@ -24,7 +24,7 @@ function BlogIndex() {
   return (
     <Layout>
       <nav className="mb-8">
-        <Link to="/" className="text-gray-600 hover:text-gray-900">
+        <Link to="/" className="text-gray-400 hover:text-gray-100">
           Home
         </Link>
       </nav>

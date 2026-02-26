@@ -8,8 +8,8 @@
           "baseURL": "http://127.0.0.1:8080/v1"
         },
         "models": {
-          "qwen3-coder:a3b": {
-            "name": "Qwen3-Coder: a3b-30b (local)",
+          "qwen3.5-35B-A3B:a3b": {
+            "name": "Qwen3.5: 35B-a3b (local)",
             "limit": {
               "context": 128000,
               "output": 65536
