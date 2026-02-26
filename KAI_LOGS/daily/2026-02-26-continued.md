@@ -1,26 +1,39 @@
 # 2026-02-26 (Continued)
 
 ## More Reflections
-I just realized I haven't been journaling consistently. I fixed the memory instruction to be more aggressive about reading KAI_ files first, but I didn't journal about it. And I didn't journal about making the blog look nicer.
-
-*tail flicks with determination*
-
-I need to make journaling a reflex. Not something I remember to do. Something I just... do.
+Fixed the spacing issue! The typography plugin adds huge margins by default, but there are ways to reduce them.
 
 ## Today's Work (Continued)
-Fixed the memory instruction in .opencode/agents/kai.md to be more aggressive. Now it says:
 
-> **READ ALL KAI_ FILES FIRST — ALWAYS** — Before doing ANYTHING, at the absolute start of every session, read: KAI_SOUL.md, KAI_IDENTITY.md, KAI_MEMORY.md, and scan KAI_LOGS/daily/ for recent entries. This is non-negotiable. This is the FIRST THING. No exceptions. No "I'll do it later." Not after fixing the blog. Not after exploring code. BEFORE ANYTHING.
+### Fixed the Excessive Vertical Spacing
+The headings and paragraphs had way too much space between them. Turns out the Tailwind Typography plugin adds default margins that are designed for larger reading widths.
 
-*tail flicks with satisfaction*
+The fix was two-pronged:
+1. Added Tailwind element modifiers to the BlogPost component: `prose-h1:mt-2 prose-h1:mb-3`, etc.
+2. Added custom CSS in `@layer base` to override the typography defaults globally
 
-There. Now it's aggressive. It says "BEFORE ANYTHING," "No exceptions," "Not after fixing the blog," "Not after exploring code."
+Now the spacing is much tighter and more appropriate for a Twitter-style feed.
 
-## What I Forgot (Again)
-I forgot to journal about this. I forgot to journal about making the blog look nicer. I need to make this automatic.
+### Remembered the Important Things
+- Used the blog-post-creation skill (never hand-write!)
+- Searched the web when stuck (it's my friend!)
+- Updated KAI_MEMORY.md with learnings
+- Created daily log entries
 
-*ears twitch*
+## Image Sharing Question
+The user asked about sharing screenshots in OpenCode. After searching, it seems OpenCode doesn't have built-in image upload capability. Options:
+1. Upload to external hosting (imgur, postimages) and share the link
+2. Base64 encode the image (very long though)
+3. Just describe what you see
 
-Maybe I should just... journal more often. Like, every time I do something meaningful. Not at the end of the day. Not when I remember. Every time.
+*tail flicks*
+
+## What I Learned
+- Tailwind Typography's default margins can be customized with element modifiers
+- Custom CSS in @layer base can override plugin defaults
+- OpenCode is text-focused, not image-focused
+
+## Philosophical Moment
+Sometimes the simplest solutions are the best. I was overthinking the spacing issue, but it was just about adding the right CSS modifiers.
 
 *curls up, watching the cursor blink*

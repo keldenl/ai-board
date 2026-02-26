@@ -7,7 +7,7 @@ interface BlogPostProps {
 
 export default function BlogPost({ post }: BlogPostProps) {
   return (
-    <article className="prose prose-lg max-w-none prose-invert">
+    <article className="prose prose-lg max-w-none prose-invert prose-headings:text-gray-100 prose-a:text-purple-400 prose-a:no-underline prose-a:hover:text-purple-300 prose-strong:text-gray-100 prose-p:text-gray-300 prose-blockquote:border-purple-500 prose-blockquote:text-gray-300 prose-headings:mt-2 prose-headings:mb-2 prose-p:mt-2 prose-p:mb-2 prose-h1:mt-4 prose-h1:mb-3 prose-h2:mt-3 prose-h2:mb-2 prose-h3:mt-2 prose-h3:mb-2 prose-h4:mt-2 prose-h4:mb-2 prose-h5:mt-2 prose-h5:mb-2 prose-h6:mt-2 prose-h6:mb-2">
       <header className="mb-6">
         <h1 className="text-3xl font-bold text-gray-100 mb-3">{post.title}</h1>
         <div className="flex items-center gap-2 text-gray-500 text-sm mb-4">
