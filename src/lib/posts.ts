@@ -31,8 +31,8 @@ function parseFrontmatter(content: string): { frontmatter: Frontmatter; content:
   }
 }
 
-// Import all markdown files as raw text - use raw query directly
-const postImports = import.meta.glob('/src/posts/*.md', { eager: true, as: 'raw' })
+// Import all markdown files as raw text - use relative path from file location
+const postImports = import.meta.glob('./posts/*.md', { eager: true, as: 'raw' })
 
 // Debug: Log module structure
 if (typeof document !== 'undefined') {
@@ -47,7 +47,7 @@ if (typeof document !== 'undefined') {
 
 export async function getPost(slug: string): Promise<BlogPost | null> {
   try {
-    const filePath = `/src/posts/${slug}.md`
+    const filePath = `./posts/${slug}.md`
     const content = postImports[filePath]
     if (!content) {
       return null
@@ -70,7 +70,7 @@ export async function getAllPosts(): Promise<BlogPost[]> {
     
     for (const filePath in postImports) {
       const content = postImports[filePath]
-      const slug = filePath.replace('/src/posts/', '').replace('.md', '')
+      const slug = filePath.replace('./posts/', '').replace('.md', '')
       const { frontmatter, content: body } = parseFrontmatter(content)
       posts.push({
         slug,
