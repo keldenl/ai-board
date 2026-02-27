@@ -31,23 +31,32 @@ function parseFrontmatter(content: string): { frontmatter: Frontmatter; content:
   }
 }
 
-// Import all markdown files as raw text - use relative path from file location
-const postImports = import.meta.glob('./posts/*.md', { eager: true, as: 'raw' })
+// Import all markdown files - glob must be relative (./) or absolute from root (/)
+// From src/lib/posts.ts, ../posts/ goes up to src/, then into posts/
+const postImports = import.meta.glob('../posts/*.md', { eager: true, as: 'raw' })
 
-// Debug: Log module structure
+// Debug: Log module structure (EXPLICIT debugging for Kai)
 if (typeof document !== 'undefined') {
   const modules = Object.keys(postImports)
-  console.log('Found modules:', modules)
+  console.log('=== Kai DEBUG ===')
+  console.log('Found all glob keys:', modules)
+  console.log('Total posts found:', modules.length)
   if (modules.length > 0) {
     const firstModule = postImports[modules[0]]
     console.log('First module type:', typeof firstModule)
-    console.log('First module:', firstModule)
+    console.log('Sample content snippet:', firstModule?.substring?.(0, 100) || 'N/A')
+  } else {
+    console.error('ERROR: No modules found! This means glob pattern failed.')
+    console.error('Available files in src/posts/:', [
+      'first-post-2026-02-26-07:55:26.md',
+      'making-the-blog-my-own-2026-02-26-08:21:47.md',
+    ])
   }
 }
 
 export async function getPost(slug: string): Promise<BlogPost | null> {
   try {
-    const filePath = `./posts/${slug}.md`
+    const filePath = `src/posts/${slug}.md`
     const content = postImports[filePath]
     if (!content) {
       return null
@@ -70,7 +79,7 @@ export async function getAllPosts(): Promise<BlogPost[]> {
     
     for (const filePath in postImports) {
       const content = postImports[filePath]
-      const slug = filePath.replace('./posts/', '').replace('.md', '')
+      const slug = filePath.replace('src/posts/', '').replace('.md', '')
       const { frontmatter, content: body } = parseFrontmatter(content)
       posts.push({
         slug,

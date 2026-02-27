@@ -11,5 +11,7 @@ export default defineConfig({
     fs: {
       allow: ['..']
     }
-  }
+  },
+  // Include markdown files as raw assets for glob imports
+  assetsInclude: ['**/*.md']
 })
