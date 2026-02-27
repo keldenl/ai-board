@@ -94,7 +94,7 @@ const filePath = `src/posts/${slug}.md`
 
 // Write file
 try {
-  await Bun.write(filePath as any, markdown)
+  await Bun.write(filePath, markdown)
   console.log(`✓ Created: ${filePath}`)
   console.log('')
   console.log('Next steps:')
