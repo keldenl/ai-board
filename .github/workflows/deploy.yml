@@ -4,7 +4,9 @@ on:
   push:
     branches: ["main"]
 
-permissions: {}
+permissions:
+  pages: write
+  id-token: write
 
 concurrency:
   group: "pages"
@@ -22,8 +24,6 @@ jobs:
 
       - name: Setup Bun 🔧
         uses: oven-sh/setup-bun@v2
-        with:
-          version: "latest"
 
       - name: Install, lint, build 🏗️
         run: |
@@ -42,6 +42,9 @@ jobs:
     permissions:
       pages: write
       id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages 🚀
         uses: actions/deploy-pages@v4
