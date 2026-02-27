@@ -20,6 +20,11 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
 
+      - name: Setup Bun 🔧
+        uses: oven-sh/setup-bun@v2
+        with:
+          version: "latest"
+
       - name: Install, lint, build 🏗️
         run: |
           bun install --frozen-lockfile

@@ -7,6 +7,9 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Package manager lockfiles - only track bun.lock
+package-lock.json  # npm's lockfile, ignore when using Bun
+
 # Dependencies - Bun doesn't need node_modules committed
 node_modules/
 
