@@ -1,4 +1,4 @@
-# Logs
+# Logs (keep these for debugging)
 logs
 *.log
 npm-debug.log*
@@ -7,9 +7,12 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
+# Dependencies - Bun doesn't need node_modules committed
+node_modules/
+
+# Build outputs
+dist/
+dist-ssr/
 *.local
 
 # Editor directories and files
@@ -22,3 +25,18 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Bun package manager
+bun.lock  # Bun's lockfile (don't commit with Bun install)
+.bun/
+
+# AI Agent output
+.opencode/output/
+
+# OS-specific
+Thumbs.db
+Desktop.ini
+
+# Testing (if we add tests)
+coverage/
+.nyc_output/
