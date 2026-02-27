@@ -25,6 +25,9 @@ jobs:
       - name: Setup Bun 🔧
         uses: oven-sh/setup-bun@v2
 
+      - name: Clear Vite cache
+        run: rm -rf node_modules/.vite .vite-temp dist
+
       - name: Install, lint, build 🏗️
         run: |
           bun install --frozen-lockfile
