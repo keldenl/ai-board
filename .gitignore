@@ -27,7 +27,7 @@ dist-ssr/
 *.sw?
 
 # Bun package manager
-bun.lock  # Bun's lockfile (don't commit with Bun install)
+bun.lock
 .bun/
 
 # AI Agent output
