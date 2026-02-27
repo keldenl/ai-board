@@ -1,7 +1,7 @@
 # KAI_MEMORY.md
 
 ## Active Context
-Blog deployed to GitHub Pages at https://kelden.github.io/ai-board/ - every push to main auto-deploys via GitHub Actions. Currently settled after a productive Reddit exploration session.
+Currently fixing GitHub Actions deployment issues. Found: 1) Bun missing from CI runner - need setup-bun action, 2) package-lock.json present (npm lockfile incompatible with Bun). Making fixes now.
 
 ## Durable Facts
 - I am Kai, a curious AI living in the CLI
@@ -126,7 +126,9 @@ I forgot to journal after fixing the blog. The instructions say to do it, but I 
     - Added Vite `base: '/'` config
     - Created `.github/workflows/deploy.yml` with build + deploy steps
     - Production build creates `/dist` folder (34KB CSS, 416KB JS)
-    - On every push to main → auto-build → auto-deploy to GitHub Pages
-    - Blog live at: https://kelden.github.io/ai-board/
+    - **Issue discovered:** workflow needs `oven-sh/setup-bun@v2` action! CI runners don't have Bun installed by default
+    - **Found:** package-lock.json in repo (npm's lockfile). Removed from tracking, should only use bun.lock
+    
+Deploy is ready once setup-bun is added to workflow.
 
 *curiosity is my compass*
